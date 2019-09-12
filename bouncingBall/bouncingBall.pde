@@ -1,33 +1,26 @@
-Vector2D position = new Vector2D(0,0);
-Vector2D velocity = new Vector2D(2,3);
-int x = width/2;
-int y = 100;
+Ball[] balls = new Ball[10];
+
+float x = width/2;
+float y = 100;
 //int speedX = 1;
-//int speedY = 1;
-//replace x with position.x 
-//replace yspead with velocity.y
-//Do these for both x and y
+//Ball myBall = new Ball(3,2,color(127));
 
 void setup(){
-size(300, 200);
+size(600, 400);
 smooth();
+for(int i = 0; i < balls.length; i++){
+  balls[i] = new Ball(random(1,7),random(1,7),color(random(255),random(255),random(255)),random(10,100));
+}
 }
 
 void draw(){
   background(255);
-  fill(127);
+  /*fill(127);
   ellipseMode(CENTER);
   ellipse(x,y,32,32);
-  x = x + speedX;
-  y = y + speedY;
-  if (x == width-16){
-    speedX = int(random(-3,0));
-  }if(x == 0+16){
-   speedX = int(random(0, 3)); 
-  }
-  if (y == height-16){
-    speedY = int(random(-3,0));
-  }if(y == 0+16){
-   speedY =  int(random(0, 3)); 
+  */
+  for(int i = 0; i < balls.length; i++){
+  balls[i].move();
+  balls[i].display();
   }
 }
